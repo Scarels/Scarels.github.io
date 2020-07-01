@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://scarels.github.io/404.html</loc>
+    
+    <lastmod>2020-07-01T13:46:20.705Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://scarels.github.io/2020/07/01/Topsis/</loc>
     
     <lastmod>2020-07-01T12:04:57.311Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://scarels.github.io/gallery/index.html</loc>
     
     <lastmod>2020-07-01T09:49:03.950Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://scarels.github.io/404.html</loc>
-    
-    <lastmod>2020-07-01T06:13:36.385Z</lastmod>
     
   </url>
   
