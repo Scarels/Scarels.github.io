@@ -27,18 +27,18 @@
 <meta property="og:site_name" content="Sde&#39;s blog">
 <meta property="og:description" content="Topsis方法（优劣解距离法） TOPSIS 法是一种常用的综合评价方法，其能充分利用原始数据的信息， 其结果能精确地反映各评价方案之间的差距  引入层次分析法的局限性 评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵差异 可能会很大 没有处理数据已知的情况  过程一、一般正向化处理原始数据矩阵统一指标类型 有哪几种指标 （1）极大型（2）极小型 （3）中间型 （4）区间型 我们一般把">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://scarels.github.io/.io//QQ%E6%88%AA%E5%9B%BE20200616165151.png">
-<meta property="og:image" content="https://scarels.github.io/.io//QQ%E6%88%AA%E5%9B%BE20200616184950.png">
-<meta property="og:image" content="https://scarels.github.io/.io//QQ%E6%88%AA%E5%9B%BE20200616191225.png">
-<meta property="og:image" content="https://scarels.github.io/.io//QQ%E6%88%AA%E5%9B%BE20200616191145.png">
-<meta property="og:image" content="https://scarels.github.io/.io//QQ%E6%88%AA%E5%9B%BE20200616191355.png">
+<meta property="og:image" content="https://scarels.github.io/2020/07/01/Topsis/QQ%E6%88%AA%E5%9B%BE20200616165151.png">
+<meta property="og:image" content="https://scarels.github.io/2020/07/01/Topsis/QQ%E6%88%AA%E5%9B%BE20200616184950.png">
+<meta property="og:image" content="https://scarels.github.io/2020/07/01/Topsis/QQ%E6%88%AA%E5%9B%BE20200616191225.png">
+<meta property="og:image" content="https://scarels.github.io/2020/07/01/Topsis/QQ%E6%88%AA%E5%9B%BE20200616191145.png">
+<meta property="og:image" content="https://scarels.github.io/2020/07/01/Topsis/QQ%E6%88%AA%E5%9B%BE20200616191355.png">
 <meta property="article:published_time" content="2020-07-01T10:49:44.000Z">
-<meta property="article:modified_time" content="2020-07-01T11:34:12.663Z">
+<meta property="article:modified_time" content="2020-07-01T11:56:51.415Z">
 <meta property="article:author" content="Scarels">
 <meta property="article:tag" content="数学建模">
 <meta property="article:tag" content="Topsis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://scarels.github.io/.io//QQ%E6%88%AA%E5%9B%BE20200616165151.png">
+<meta name="twitter:image" content="https://scarels.github.io/2020/07/01/Topsis/QQ%E6%88%AA%E5%9B%BE20200616165151.png">
 
 <link rel="canonical" href="https://scarels.github.io/2020/07/01/Topsis/">
 
@@ -261,7 +261,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-07-01 18:49:44 / Modified: 19:34:12" itemprop="dateCreated datePublished" datetime="2020-07-01T18:49:44+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-01 18:49:44 / Modified: 19:56:51" itemprop="dateCreated datePublished" datetime="2020-07-01T18:49:44+08:00">2020-07-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,26 +310,26 @@
 <li>没有处理数据已知的情况</li>
 </ul>
 <h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="一、一般正向化处理"><a href="#一、一般正向化处理" class="headerlink" title="一、一般正向化处理"></a>一、一般正向化处理</h3><p>原始数据矩阵统一指标类型</p>
-<p>有哪几种指标 （1）极大型（2）极小型 （3）中间型 （4）区间型<img src="/.io//QQ截图20200616165151.png" alt="QQ截图20200616165151"></p>
+<p>有哪几种指标 （1）极大型（2）极小型 （3）中间型 （4）区间型<img src="/2020/07/01/Topsis/QQ截图20200616165151.png" alt="QQ截图20200616165151"></p>
 <p>我们一般把极小型转化为极大型 <strong>max-x</strong>  </p>
 <p>将中间型转为极大型</p>
 <script type="math/tex; mode=display">
 M = max\left\{ |x_i-x_{best}|\right\}
 ,\widetilde x_i = 1-\dfrac{|x_i-x_{best}|}{M}</script><p>转换的函数形式可以不唯一</p>
 <p>区间型转换为极大型</p>
-<p><img src="/.io//QQ截图20200616184950.png" alt="QQ截图20200616184950"></p>
+<p><img src="/2020/07/01/Topsis/QQ截图20200616184950.png" alt="QQ截图20200616184950"></p>
 <h3 id="二、标准化处理"><a href="#二、标准化处理" class="headerlink" title="二、标准化处理"></a>二、标准化处理</h3><p>以消除各指标量纲的影响 </p>
 <p>有<strong>很多标准化方法</strong>都可以用</p>
 <p>每一个元素 除以 所在列的平方和</p>
 <h3 id="三、计算得分"><a href="#三、计算得分" class="headerlink" title="三、计算得分"></a>三、计算得分</h3><ol>
 <li><p>找到有限方案中的最优方案和最劣方案</p>
 <p>（m个指标</p>
-<p>​    （找到同一个指标下 n个对象中 最好的 和 最坏的））<img src="/.io//QQ截图20200616191225.png" alt="QQ截图20200616191225"></p>
+<p>​    （找到同一个指标下 n个对象中 最好的 和 最坏的））<img src="/2020/07/01/Topsis/QQ截图20200616191225.png" alt="QQ截图20200616191225"></p>
 </li>
 <li><p>计算各评价对象与最优方案和最劣方案间的距离</p>
 <p>对于每一个指标中的 所有元素 计算与 最好和 最坏的 距离</p>
-<p><img src="/.io//QQ截图20200616191145.png" alt="QQ截图20200616191145"></p>
-<p>对于有权重的<img src="/.io//QQ截图20200616191355.png" alt="QQ截图20200616191355"></p>
+<p><img src="/2020/07/01/Topsis/QQ截图20200616191145.png" alt="QQ截图20200616191145"></p>
+<p>对于有权重的<img src="/2020/07/01/Topsis/QQ截图20200616191355.png" alt="QQ截图20200616191355"></p>
 </li>
 <li><p>归一化形成最终得分</p>
 <p>某一个元素的得分就是 其与最坏的距离 除以 其与最好的距离加上其与最坏的距离</p>

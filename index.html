@@ -251,7 +251,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-07-01 18:49:44 / Modified: 19:34:12" itemprop="dateCreated datePublished" datetime="2020-07-01T18:49:44+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-01 18:49:44 / Modified: 19:56:51" itemprop="dateCreated datePublished" datetime="2020-07-01T18:49:44+08:00">2020-07-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,26 +300,26 @@
 <li>没有处理数据已知的情况</li>
 </ul>
 <h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="一、一般正向化处理"><a href="#一、一般正向化处理" class="headerlink" title="一、一般正向化处理"></a>一、一般正向化处理</h3><p>原始数据矩阵统一指标类型</p>
-<p>有哪几种指标 （1）极大型（2）极小型 （3）中间型 （4）区间型<img src="/.io//QQ截图20200616165151.png" alt="QQ截图20200616165151"></p>
+<p>有哪几种指标 （1）极大型（2）极小型 （3）中间型 （4）区间型<img src="/2020/07/01/Topsis/QQ截图20200616165151.png" alt="QQ截图20200616165151"></p>
 <p>我们一般把极小型转化为极大型 <strong>max-x</strong>  </p>
 <p>将中间型转为极大型</p>
 <script type="math/tex; mode=display">
 M = max\left\{ |x_i-x_{best}|\right\}
 ,\widetilde x_i = 1-\dfrac{|x_i-x_{best}|}{M}</script><p>转换的函数形式可以不唯一</p>
 <p>区间型转换为极大型</p>
-<p><img src="/.io//QQ截图20200616184950.png" alt="QQ截图20200616184950"></p>
+<p><img src="/2020/07/01/Topsis/QQ截图20200616184950.png" alt="QQ截图20200616184950"></p>
 <h3 id="二、标准化处理"><a href="#二、标准化处理" class="headerlink" title="二、标准化处理"></a>二、标准化处理</h3><p>以消除各指标量纲的影响 </p>
 <p>有<strong>很多标准化方法</strong>都可以用</p>
 <p>每一个元素 除以 所在列的平方和</p>
 <h3 id="三、计算得分"><a href="#三、计算得分" class="headerlink" title="三、计算得分"></a>三、计算得分</h3><ol>
 <li><p>找到有限方案中的最优方案和最劣方案</p>
 <p>（m个指标</p>
-<p>​    （找到同一个指标下 n个对象中 最好的 和 最坏的））<img src="/.io//QQ截图20200616191225.png" alt="QQ截图20200616191225"></p>
+<p>​    （找到同一个指标下 n个对象中 最好的 和 最坏的））<img src="/2020/07/01/Topsis/QQ截图20200616191225.png" alt="QQ截图20200616191225"></p>
 </li>
 <li><p>计算各评价对象与最优方案和最劣方案间的距离</p>
 <p>对于每一个指标中的 所有元素 计算与 最好和 最坏的 距离</p>
-<p><img src="/.io//QQ截图20200616191145.png" alt="QQ截图20200616191145"></p>
-<p>对于有权重的<img src="/.io//QQ截图20200616191355.png" alt="QQ截图20200616191355"></p>
+<p><img src="/2020/07/01/Topsis/QQ截图20200616191145.png" alt="QQ截图20200616191145"></p>
+<p>对于有权重的<img src="/2020/07/01/Topsis/QQ截图20200616191355.png" alt="QQ截图20200616191355"></p>
 </li>
 <li><p>归一化形成最终得分</p>
 <p>某一个元素的得分就是 其与最坏的距离 除以 其与最好的距离加上其与最坏的距离</p>
@@ -370,7 +370,7 @@ M = max\left\{ |x_i-x_{best}|\right\}
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-07-01 18:46:15 / Modified: 19:34:20" itemprop="dateCreated datePublished" datetime="2020-07-01T18:46:15+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-01 18:46:15 / Modified: 19:57:44" itemprop="dateCreated datePublished" datetime="2020-07-01T18:46:15+08:00">2020-07-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -417,30 +417,30 @@ M = max\left\{ |x_i-x_{best}|\right\}
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>总体</strong>：所要考察对象的<strong>全部个体</strong>叫做总体. 我们总是希望得到总体数据的一些特征（我国10年进行一次的人口普查得到的数据就是总体数据）</p>
 <p><strong>样本</strong>：从总体中所抽取的一部分个体叫做总体的一个样本</p>
 <p>使用<strong>样本均值、样本标准差</strong>来<strong>估计</strong>总体的均值（平均 水平）和总体的标准差（偏离程度） </p>
-<p><strong>协方差</strong>：<img src="/.io//QQ截图20200618140249.png" alt="QQ截图20200618140249"></p>
+<p><strong>协方差</strong>：<img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200618140249.png" alt="QQ截图20200618140249"></p>
 <p>从数值来看，协方差的数值越大，两个变量<strong>同向程度</strong>也就越大。反之亦然</p>
-<p><img src="/.io//v2-6b328a1d812c19e1aa7822058b26c02c_720w.jpg" alt="v2-6b328a1d812c19e1aa7822058b26c02c_720w"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/v2-6b328a1d812c19e1aa7822058b26c02c_720w.jpg" alt="v2-6b328a1d812c19e1aa7822058b26c02c_720w"></p>
 <h3 id="Pearson相关系数"><a href="#Pearson相关系数" class="headerlink" title="Pearson相关系数"></a>Pearson相关系数</h3><p>你必须先确认这两个变量是<strong>线性相关</strong>的，然后这个相关系数才能 告诉你他俩<strong>相关程度</strong>如何。</p>
-<h4 id="总体皮尔逊Pearson相关系数"><a href="#总体皮尔逊Pearson相关系数" class="headerlink" title="总体皮尔逊Pearson相关系数"></a>总体皮尔逊Pearson相关系数</h4><p><img src="/.io//QQ截图20200618141106.png" alt="QQ截图20200618141106"></p>
+<h4 id="总体皮尔逊Pearson相关系数"><a href="#总体皮尔逊Pearson相关系数" class="headerlink" title="总体皮尔逊Pearson相关系数"></a>总体皮尔逊Pearson相关系数</h4><p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200618141106.png" alt="QQ截图20200618141106"></p>
 <p>描述变化形状 消除了量纲的影响</p>
-<p><img src="/.io//v2-9e7ba07a2f2c22beef04a648d6126951_720w.jpg" alt="v2-9e7ba07a2f2c22beef04a648d6126951_720w"></p>
-<h4 id="样本皮尔逊Pearson相关系数"><a href="#样本皮尔逊Pearson相关系数" class="headerlink" title="样本皮尔逊Pearson相关系数"></a>样本皮尔逊Pearson相关系数</h4><p><img src="/.io//QQ截图20200618141843.png" alt="QQ截图20200618141843"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/v2-9e7ba07a2f2c22beef04a648d6126951_720w.jpg" alt="v2-9e7ba07a2f2c22beef04a648d6126951_720w"></p>
+<h4 id="样本皮尔逊Pearson相关系数"><a href="#样本皮尔逊Pearson相关系数" class="headerlink" title="样本皮尔逊Pearson相关系数"></a>样本皮尔逊Pearson相关系数</h4><p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200618141843.png" alt="QQ截图20200618141843"></p>
 <p><strong>相关系数大小的解释</strong></p>
-<p><img src="/.io//QQ截图20200618142316.png" alt="QQ截图20200618142316"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200618142316.png" alt="QQ截图20200618142316"></p>
 <p>事实上，比起相关系数的<strong>大小</strong>，我们往往更关注的是<strong>显著性</strong>。 （假设检验）</p>
-<h3 id="spearman相关系数"><a href="#spearman相关系数" class="headerlink" title="spearman相关系数"></a>spearman相关系数</h3><p><img src="/.io//QQ截图20200626203857.png" alt="QQ截图20200626203857"></p>
+<h3 id="spearman相关系数"><a href="#spearman相关系数" class="headerlink" title="spearman相关系数"></a>spearman相关系数</h3><p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626203857.png" alt="QQ截图20200626203857"></p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="进行假设检验的条件"><a href="#进行假设检验的条件" class="headerlink" title="进行假设检验的条件"></a>进行假设检验的条件</h3><p>一、实验<strong>数据</strong>通常假设是成对的来自于<strong>正态分布的总体</strong>。<strong>t检验</strong>是基于数据呈正态分布的假设的</p>
 <p>二、实验<strong>数据</strong>之间的<strong>差距</strong>不能太大。皮尔逊相关性系数受<strong>异常值</strong>的影响比较大</p>
 <p>三、每组样本之间是<strong>独立抽样</strong>的。构造<strong>t统计量</strong>时需要用到。</p>
 <h3 id="正态分布检验"><a href="#正态分布检验" class="headerlink" title="正态分布检验"></a>正态分布检验</h3><h4 id="JB检验"><a href="#JB检验" class="headerlink" title="JB检验"></a>JB检验</h4><p>雅克‐贝拉检验(Jarque‐Beratest) 对于<strong>大样本</strong>（n&gt;30）</p>
 <h5 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h5><p><strong>偏度与峰度</strong></p>
-<p><img src="/.io//QQ截图20200626201755.png" alt="QQ截图20200626201755"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626201755.png" alt="QQ截图20200626201755"></p>
 <ul>
 <li><p><strong>构造统计量</strong></p>
-<p><img src="/.io//QQ截图20200626201506.png" alt="QQ截图20200626201506"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626201506.png" alt="QQ截图20200626201506"></p>
 </li>
 <li><p><strong>假设检验</strong></p>
-<p><img src="/.io//QQ截图20200626201607.png" alt="QQ截图20200626201607"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626201607.png" alt="QQ截图20200626201607"></p>
 <p>求出p值与0.05比较</p>
 </li>
 <li><p><strong>实现函数</strong></p>
@@ -456,13 +456,13 @@ M = max\left\{ |x_i-x_{best}|\right\}
 </li>
 </ul>
 <h4 id="Shapiro-wilk检验"><a href="#Shapiro-wilk检验" class="headerlink" title="Shapiro-wilk检验"></a>Shapiro-wilk检验</h4><p>小样本（3-50）</p>
-<p><img src="/.io//QQ截图20200626202616.png" alt="QQ截图20200626202616"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626202616.png" alt="QQ截图20200626202616"></p>
 <h4 id="Q‐Q图"><a href="#Q‐Q图" class="headerlink" title="Q‐Q图"></a>Q‐Q图</h4><blockquote>
 <p>在统计学中，Q‐Q图（Q代表分位数Quantile）是一种通过比较两个概率分布的分位数对这两个概率分布进行比较的概率图方法</p>
 </blockquote>
 <p>是否近似在一条直线上 要求数据量非常大</p>
 <p>首先选定 分位数 （分位数就是用概率作为依据将一批数据<strong>分开</strong>的那个点）的对应概率区间集合，在次概率区间上，点（x，y）对应于第一个分布的分位数x 与第二个分布 在和x相同概率区间上 <strong>相同的分位数</strong></p>
-<p><img src="/.io//QQ截图20200626203704.png" alt="QQ截图20200626203704"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626203704.png" alt="QQ截图20200626203704"></p>
 <h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><ul>
 <li><p><strong>皮尔逊相关系数</strong> </p>
 <p>corrcoef函数：correlation coefficient相关系数 </p>
@@ -481,19 +481,19 @@ M = max\left\{ |x_i-x_{best}|\right\}
 </ul>
 <script type="math/tex; mode=display">
 H_0:r = 0,H_1:r \neq0</script><h4 id="二、构造统计量"><a href="#二、构造统计量" class="headerlink" title="二、构造统计量"></a>二、构造统计量</h4><ul>
-<li><p>在原假设成立的条件下，利用我们]要检验的量构造出一一个<strong>符合某一分布的</strong>统计量（相当于一个一元<strong>函数</strong>）<img src="/.io//QQ截图20200626200418.png" alt="QQ截图20200626200418"></p>
+<li><p>在原假设成立的条件下，利用我们]要检验的量构造出一一个<strong>符合某一分布的</strong>统计量（相当于一个一元<strong>函数</strong>）<img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626200418.png" alt="QQ截图20200626200418"></p>
 </li>
 <li><p>spearman</p>
-<p><img src="/.io//QQ截图20200626204922.png" alt="QQ截图20200626204922"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626204922.png" alt="QQ截图20200626204922"></p>
 <ul>
 <li><p>小样本（30以下）</p>
 <p>查临界值表即可</p>
 </li>
-<li><p><img src="/.io//QQ截图20200626204732.png" alt="QQ截图20200626204732"></p>
+<li><p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626204732.png" alt="QQ截图20200626204732"></p>
 <p>得到的与正态分布比较</p>
 </li>
 </ul>
-<p><img src="/.io//QQ截图20200626204832.png" alt="QQ截图20200626204832"></p>
+<p><img src="/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/QQ截图20200626204832.png" alt="QQ截图20200626204832"></p>
 </li>
 </ul>
 <h4 id="三、进行假设检验"><a href="#三、进行假设检验" class="headerlink" title="三、进行假设检验"></a>三、进行假设检验</h4><p>把得到的值<strong>代入</strong>统计量中，得到一个特定的值</p>
@@ -542,7 +542,7 @@ H_0:r = 0,H_1:r \neq0</script><h4 id="二、构造统计量"><a href="#二、构
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-07-01 18:41:11 / Modified: 19:34:24" itemprop="dateCreated datePublished" datetime="2020-07-01T18:41:11+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-01 18:41:11 / Modified: 19:55:15" itemprop="dateCreated datePublished" datetime="2020-07-01T18:41:11+08:00">2020-07-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -583,22 +583,22 @@ H_0:r = 0,H_1:r \neq0</script><h4 id="二、构造统计量"><a href="#二、构
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h1><h2 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h2><p><img src="/.io//QQ截图20200617103139.png" alt="QQ截图20200617103139"></p>
-<h2 id="什么是线性"><a href="#什么是线性" class="headerlink" title="什么是线性"></a>什么是线性</h2><p><img src="/.io//QQ截图20200617103811.png" alt="QQ截图20200617103811"></p>
+          <h1 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h1><h2 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h2><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617103139.png" alt="QQ截图20200617103139"></p>
+<h2 id="什么是线性"><a href="#什么是线性" class="headerlink" title="什么是线性"></a>什么是线性</h2><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617103811.png" alt="QQ截图20200617103811"></p>
 <h3 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h3><p><a href="http://blog.itpub.net/29829936/viewspace-2649379/" target="_blank" rel="noopener">http://blog.itpub.net/29829936/viewspace-2649379/</a> 来自 “ ITPUB博客 </p>
 <p>线性是指 <strong>参数</strong>是线性关系 ln（xi）只是对 xi 进行了<strong>处理</strong>不影响什么</p>
 <p>当前目标是确定<strong>最符合训练数据</strong>的<strong>参数a和b</strong>的值。</p>
 <p>这可通过测量每个输入x的实际目标值y和模型f（x）之间的失配来实现，并将<strong>失配最小化</strong>。这种失配（=最小值）被称为误差函数。</p>
 <p>有多种误差函数可供选择，但其中最简单的要数<strong>RSS</strong>（构造出了一个凹函数 <strong>好找最小值</strong>），即每个数据点x对应的模型f（x）与目标值y的误差平方和。</p>
-<p><img src="/.io//eab15e6c872545b0966bd2e4bdfbb5e6.jpg" alt="eab15e6c872545b0966bd2e4bdfbb5e6"></p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/eab15e6c872545b0966bd2e4bdfbb5e6.jpg" alt="eab15e6c872545b0966bd2e4bdfbb5e6"></p>
 <p>利用误差函数的概念，可将“确定最符合训练数据的参数a、b”改为“确定参数a、b，使误差函数最小化”。</p>
 <p>计算一下训练数据的误差函数。</p>
-<p><img src="/.io//f034ae19ccd24534aee4dc35a0b3023b.jpg" alt="f034ae19ccd24534aee4dc35a0b3023b"></p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/f034ae19ccd24534aee4dc35a0b3023b.jpg" alt="f034ae19ccd24534aee4dc35a0b3023b"></p>
 <p>上面的等式就是要求最小值的误差函数。但是，怎样才能找到参数a、b，得到此函数的最小值呢？为启发思维，需要将该函数视觉化。</p>
-<p><img src="/.io//568b54f271654a15b2daf448b79cc3c3.jpg" alt="568b54f271654a15b2daf448b79cc3c3"></p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/568b54f271654a15b2daf448b79cc3c3.jpg" alt="568b54f271654a15b2daf448b79cc3c3"></p>
 <p>但是无论真么改变函数f（x）都只是改变带入的数据 不影响<strong>RSS的形状</strong></p>
-<h2 id="内生性"><a href="#内生性" class="headerlink" title="内生性"></a>内生性</h2><h3 id="引例"><a href="#引例" class="headerlink" title="引例"></a>引例</h3><p><img src="/.io//QQ截图20200617110057.png" alt="QQ截图20200617110057"></p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="/.io//QQ截图20200617110419.png" alt="QQ截图20200617110419"></p>
+<h2 id="内生性"><a href="#内生性" class="headerlink" title="内生性"></a>内生性</h2><h3 id="引例"><a href="#引例" class="headerlink" title="引例"></a>引例</h3><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617110057.png" alt="QQ截图20200617110057"></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617110419.png" alt="QQ截图20200617110419"></p>
 <p>相关就是内生性</p>
 <p><strong><em>危害：</em></strong>不满足回归系数估计的<strong>无偏</strong>与<strong>一致性</strong></p>
 <p>误差项</p>
@@ -623,11 +623,11 @@ y_i = \beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3\\
 </ul>
 <p>应用：在实际应用中，我们只要保证核心解释变量与𝝁不相关即可。</p>
 <h2 id="虚拟变量"><a href="#虚拟变量" class="headerlink" title="虚拟变量"></a>虚拟变量</h2><p>用于回归中处理<strong>定性变量</strong>，例如性别、地域等</p>
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><img src="/.io//QQ截图20200617115347.png" alt="QQ截图20200617115347"></p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617115347.png" alt="QQ截图20200617115347"></p>
 <h3 id="多分类"><a href="#多分类" class="headerlink" title="多分类"></a>多分类</h3><p>找出一组作为所有的对照 <strong>两两比较</strong></p>
 <p>可以这样叙述</p>
-<p><img src="/.io//QQ截图20200617115829.png" alt="QQ截图20200617115829"></p>
-<h2 id="回归建模步骤"><a href="#回归建模步骤" class="headerlink" title="回归建模步骤"></a>回归建模步骤</h2><h3 id="一、描述性统计"><a href="#一、描述性统计" class="headerlink" title="一、描述性统计"></a>一、描述性统计</h3><h4 id="指标分类"><a href="#指标分类" class="headerlink" title="指标分类"></a>指标分类<img src="/.io//QQ截图20200617121914.png" alt="QQ截图20200617121914"></h4><h4 id="得到表格"><a href="#得到表格" class="headerlink" title="得到表格"></a>得到表格</h4><ul>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617115829.png" alt="QQ截图20200617115829"></p>
+<h2 id="回归建模步骤"><a href="#回归建模步骤" class="headerlink" title="回归建模步骤"></a>回归建模步骤</h2><h3 id="一、描述性统计"><a href="#一、描述性统计" class="headerlink" title="一、描述性统计"></a>一、描述性统计</h3><h4 id="指标分类"><a href="#指标分类" class="headerlink" title="指标分类"></a>指标分类<img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617121914.png" alt="QQ截图20200617121914"></h4><h4 id="得到表格"><a href="#得到表格" class="headerlink" title="得到表格"></a>得到表格</h4><ul>
 <li><p>定量数据</p>
 <p>sum（marize）变量1 变量2… 变量n</p>
 </li>
@@ -636,10 +636,10 @@ y_i = \beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3\\
 <p>生成对应的频率分布 并 生成变量A1 A2…An</p>
 </li>
 </ul>
-<h3 id="二、回归"><a href="#二、回归" class="headerlink" title="二、回归"></a>二、回归</h3><h4 id="Stata基本OLS"><a href="#Stata基本OLS" class="headerlink" title="Stata基本OLS"></a>Stata基本OLS</h4><p>reg（ress）y x1 x2…xn    (OLS)<img src="/.io//001.png" alt="001"></p>
+<h3 id="二、回归"><a href="#二、回归" class="headerlink" title="二、回归"></a>二、回归</h3><h4 id="Stata基本OLS"><a href="#Stata基本OLS" class="headerlink" title="Stata基本OLS"></a>Stata基本OLS</h4><p>reg（ress）y x1 x2…xn    (OLS)<img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/001.png" alt="001"></p>
 <p>第二列SS对应的是误差平方和，或称变差。<br>1.第一行为回归平方和或回归变差SSR，表示因变量的预LSSR=测值对其平均值的总偏差。<br>2.第二行为剩余平方和(也称残差平方和或剩余变差)SSE，是因变量对其预测值的总偏差，这个数值越大，拟合效果越差，y的标准误差即由SSE给出。<br>3.第三行为总平方和或总变差SST，表示因变量对其平均值的总偏差。</p>
 <p>第三列df是自由度(degree of freedom)，第一行是回归自由度dfr，等于变量数目，即dfr=m; 第二为残差自由度dfe， 等于样本数目减去变量数目再减1，即有dfe=n-m-1;第三行为总自由度dft，等于样本数目减1，即有dft=n-1。<br>第四列MS是均方差，误差平方和除以相应的自由度<br>1.第一行为回归均方差MSR<br>2.第二行为剩余均方差MSE，数值越小拟合效果越好</p>
-<p><img src="/.io//002.png" alt="002"></p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/002.png" alt="002"></p>
 <p><strong>F值</strong>，用于线性关系的判定。结合P值对线性关系的显著性进行判断，即弃真概率。所谓“弃真概率”即模型为假的概率，显然1-P便是模型”为真的概率，P值越小越好。对于本例，P=0.0000&lt;0.0001 ,故置信度达到99.99%以上。</p>
 <hr>
 <p><strong>R- Squared</strong>为判定系数(determination coefficignt)，或称拟合优(goodness of fit)，它是相关系数的平方，也是<strong>1-SSR/SST</strong>，y的总偏差中自变量解释的部分。</p>
@@ -652,7 +652,7 @@ R_a^2= 1-\dfrac{SSE/dfe}{SST/dft}</script><p>我们引入的<strong>自变量越
 <hr>
 <p>Root MSE为标准误差( standard error)，数值越小，拟合的效果越好</p>
 <script type="math/tex; mode=display">
-ROOT\ MSE =\sqrt{MSE}</script><p><img src="/.io//003.png" alt="003"></p>
+ROOT\ MSE =\sqrt{MSE}</script><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/003.png" alt="003"></p>
 <script type="math/tex; mode=display">
 Std.\ Err.\ 回归系数的标准误差\\
 \sqrt[]{var(\hat\beta_j)} = \sqrt{\dfrac{MSE}{SST_{x_j}(1-R_j^2)}}
@@ -662,7 +662,7 @@ R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以
 <p>P值用于说明回归系数的显著性，一般来说P值&lt;0.1(<em>)表示10%显著水平显著，P值&lt;0.05(\</em>*)表示5%显著水平显著，P值 &lt;0.01(***)表示1%显著水平显著</p>
 <h4 id="标准化回归"><a href="#标准化回归" class="headerlink" title="标准化回归"></a>标准化回归</h4><p>通过<strong>去除量纲</strong>的影响来<strong>反映</strong>自变量之间的<strong>重要程度</strong></p>
 <p>regress y x1 x2 … xk,beta</p>
-<p><img src="/.io//QQ截图20200617131700.png" alt="QQ截图20200617131700"></p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617131700.png" alt="QQ截图20200617131700"></p>
 <p>只是多了最后那<strong>一列标准化回归系数</strong> 对数据进行标准化处理<strong>不会影响</strong>回归系数的标准误，也不会影响显著性.</p>
 <h3 id="三、检验"><a href="#三、检验" class="headerlink" title="三、检验"></a>三、检验</h3><p><strong>先进行</strong>OLS得到回归结果后 <strong>验证</strong>扰动项是不是存在异方差，多重共线性</p>
 <h4 id="异方差"><a href="#异方差" class="headerlink" title="异方差"></a>异方差</h4><p><strong>扰动项</strong>存在异方差</p>
@@ -690,7 +690,7 @@ R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以
 </ul>
 <p>去除异方差的影响</p>
 <h4 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h4><h5 id="检验-1"><a href="#检验-1" class="headerlink" title="检验"></a>检验</h5><p>estat  vif</p>
-<p><img src="/.io//QQ截图20200617135038.png" alt="QQ截图20200617135038"></p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617135038.png" alt="QQ截图20200617135038"></p>
 <p><strong>VIF &gt; 10</strong>则认为存在严重的多重共线性</p>
 <h3 id="四、改进方案"><a href="#四、改进方案" class="headerlink" title="四、改进方案"></a>四、改进方案</h3><h4 id="异方差-1"><a href="#异方差-1" class="headerlink" title="异方差"></a>异方差</h4><h5 id="OLS-稳健的标准误"><a href="#OLS-稳健的标准误" class="headerlink" title="OLS+稳健的标准误"></a>OLS+稳健的标准误</h5><p>这是最简单，也是目前通用的方法。只要<strong>样本容量较大</strong>，即使在异方差的情况下，若使用稳健标准误，则所有<strong>参数估计</strong>、<strong>假设检验</strong>均可照常进行。换言之， 只要使用了稳健标准误，就可以与异方差“和平共处”了</p>
 <p>regress y x1 x2 … xk,robust</p>
@@ -741,7 +741,7 @@ R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-07-01 18:26:57 / Modified: 19:34:27" itemprop="dateCreated datePublished" datetime="2020-07-01T18:26:57+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-01 18:26:57 / Modified: 19:58:02" itemprop="dateCreated datePublished" datetime="2020-07-01T18:26:57+08:00">2020-07-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -791,14 +791,14 @@ R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以
 </li>
 </ul>
 <h3 id="填写权重表格"><a href="#填写权重表格" class="headerlink" title="填写权重表格"></a>填写权重表格</h3><ul>
-<li><p>两个两个指标进行比较，最终根据两两比较的结果来推算出权重（分治思想）<img src="/.io//标度表.png" alt="标度表">如何填写表格 </p>
+<li><p>两个两个指标进行比较，最终根据两两比较的结果来推算出权重（分治思想）<img src="/2020/07/01/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/标度表.png" alt="标度表">如何填写表格 </p>
 <ul>
-<li><p>确定各个指标所占权重<img src="/.io//QQ截图20200616153632.png" alt="QQ截图20200616153632"></p>
-<p>得到一个判断矩阵（根据这个正互反矩阵确定权重）<img src="/.io//QQ截图20200616154031.png" alt="QQ截图20200616154031"></p>
+<li><p>确定各个指标所占权重<img src="/2020/07/01/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/QQ截图20200616153632.png" alt="QQ截图20200616153632"></p>
+<p>得到一个判断矩阵（根据这个正互反矩阵确定权重）<img src="/2020/07/01/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/QQ截图20200616154031.png" alt="QQ截图20200616154031"></p>
 </li>
 <li><p>各个指标下不同对象的重要程度（生成判断矩阵）</p>
-<p><img src="/.io//QQ截图20200616154623.png" alt="QQ截图20200616154623">这个就有问题</p>
-<p>可能会出现矛盾 不一致的情况（应该是aij <em> aji = aik） 使用 进行<strong>一致性检验</strong>   简单来说可以看<em>*两列之间</em></em>却是不是成倍数关系<img src="/.io//QQ截图20200616155220.png" alt="QQ截图20200616155220"></p>
+<p><img src="/2020/07/01/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/QQ截图20200616154623.png" alt="QQ截图20200616154623">这个就有问题</p>
+<p>可能会出现矛盾 不一致的情况（应该是aij <em> aji = aik） 使用 进行<strong>一致性检验</strong>   简单来说可以看<em>*两列之间</em></em>却是不是成倍数关系<img src="/2020/07/01/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/QQ截图20200616155220.png" alt="QQ截图20200616155220"></p>
 <p>可知：r（A） = 1 只有一个特征值为 n</p>
 <p>不一致时 <strong>不一致程度越大 特征值越大</strong></p>
 </li>
@@ -825,7 +825,7 @@ R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以
 
   第一步：求出矩阵A的最大特征值以及其对应的特征向量
   第二步：对求出的特征向量进行归一化即可得到我们的权重
-</code></pre><h3 id="论文中"><a href="#论文中" class="headerlink" title="论文中"></a>论文中</h3><p>层次结构图<img src="/.io//QQ截图20200616214815.png" alt="QQ截图20200616214815"></p>
+</code></pre><h3 id="论文中"><a href="#论文中" class="headerlink" title="论文中"></a>论文中</h3><p>层次结构图<img src="/2020/07/01/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/QQ截图20200616214815.png" alt="QQ截图20200616214815"></p>
 
       
     </div>
