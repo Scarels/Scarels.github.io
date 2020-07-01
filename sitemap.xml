@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://scarels.github.io/404.html</loc>
+    
+    <lastmod>2020-07-01T06:13:36.385Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://scarels.github.io/categories/index.html</loc>
     
-    <lastmod>2020-07-01T02:21:19.864Z</lastmod>
+    <lastmod>2020-07-01T06:10:57.372Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://scarels.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-07-01T06:09:43.912Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://scarels.github.io/about/index.html</loc>
+    
+    <lastmod>2020-07-01T06:08:43.034Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://scarels.github.io/2020/07/01/hello-world/</loc>
+    
+    <lastmod>2020-07-01T05:22:45.255Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://scarels.github.io/gallery/index.html</loc>
+    
+    <lastmod>2020-07-01T04:46:20.463Z</lastmod>
     
   </url>
   
@@ -12,13 +47,6 @@
     <loc>https://scarels.github.io/2020/07/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</loc>
     
     <lastmod>2020-06-30T17:13:49.223Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://scarels.github.io/2020/07/01/hello-world/</loc>
-    
-    <lastmod>2020-06-30T16:37:12.871Z</lastmod>
     
   </url>
   
