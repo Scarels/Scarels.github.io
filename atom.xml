@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://scarels.github.io/"/>
-  <updated>2020-07-01T12:04:57.311Z</updated>
+  <updated>2020-07-02T05:03:27.009Z</updated>
   <id>https://scarels.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Native方法</title>
+    <link href="https://scarels.github.io/2020/07/02/native%E6%96%B9%E6%B3%95/"/>
+    <id>https://scarels.github.io/2020/07/02/native%E6%96%B9%E6%B3%95/</id>
+    <published>2020-07-02T02:03:22.000Z</published>
+    <updated>2020-07-02T05:03:27.009Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;native方法&quot;&gt;&lt;a href=&quot;#native方法&quot; class=&quot;headerlink&quot; title=&quot;native方法&quot;&gt;&lt;/a&gt;native方法&lt;/h1&gt;&lt;p&gt;文章介绍了native方法的大致概念，以及如何实现一个native方法&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://scarels.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="Native方法" scheme="https://scarels.github.io/categories/Java%E5%9F%BA%E7%A1%80/Native%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="Java基础" scheme="https://scarels.github.io/tags/Java%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="Native方法" scheme="https://scarels.github.io/tags/Native%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Topsis</title>
