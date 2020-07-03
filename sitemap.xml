@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://scarels.github.io/about/index.html</loc>
+    
+    <lastmod>2020-07-03T16:19:48.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://scarels.github.io/2020/07/01/Topsis/</loc>
+    
+    <lastmod>2020-07-03T15:55:48.177Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://scarels.github.io/2020/07/02/native%E6%96%B9%E6%B3%95/</loc>
     
-    <lastmod>2020-07-02T05:03:27.009Z</lastmod>
+    <lastmod>2020-07-03T15:55:31.829Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://scarels.github.io/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/</loc>
+    
+    <lastmod>2020-07-03T15:54:43.275Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://scarels.github.io/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</loc>
+    
+    <lastmod>2020-07-03T15:53:22.042Z</lastmod>
     
   </url>
   
@@ -12,27 +40,6 @@
     <loc>https://scarels.github.io/404.html</loc>
     
     <lastmod>2020-07-01T13:46:20.705Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://scarels.github.io/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</loc>
-    
-    <lastmod>2020-07-01T13:28:45.324Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://scarels.github.io/2020/07/01/Topsis/</loc>
-    
-    <lastmod>2020-07-01T12:04:57.311Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://scarels.github.io/2020/07/01/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/</loc>
-    
-    <lastmod>2020-07-01T12:04:29.238Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>https://scarels.github.io/tags/index.html</loc>
     
     <lastmod>2020-07-01T06:09:43.912Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://scarels.github.io/about/index.html</loc>
-    
-    <lastmod>2020-07-01T06:08:43.034Z</lastmod>
     
   </url>
   

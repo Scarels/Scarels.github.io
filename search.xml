@@ -71,131 +71,40 @@ M = max\left\{ |x_i-x_{best}|\right\}
       </tags>
   </entry>
   <entry>
-    <title>多元线性回归</title>
-    <url>/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
-    <content><![CDATA[<h1 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h1><a id="more"></a>
-<h2 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h2><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617103139.png" alt="QQ截图20200617103139"></p>
-<h2 id="什么是线性"><a href="#什么是线性" class="headerlink" title="什么是线性"></a>什么是线性</h2><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617103811.png" alt="QQ截图20200617103811"></p>
-<h3 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h3><p><a href="http://blog.itpub.net/29829936/viewspace-2649379/" target="_blank" rel="noopener">http://blog.itpub.net/29829936/viewspace-2649379/</a> 来自 “ ITPUB博客 </p>
-<p>线性是指 <strong>参数</strong>是线性关系 ln（xi）只是对 xi 进行了<strong>处理</strong>不影响什么</p>
-<p>当前目标是确定<strong>最符合训练数据</strong>的<strong>参数a和b</strong>的值。</p>
-<p>这可通过测量每个输入x的实际目标值y和模型f（x）之间的失配来实现，并将<strong>失配最小化</strong>。这种失配（=最小值）被称为误差函数。</p>
-<p>有多种误差函数可供选择，但其中最简单的要数<strong>RSS</strong>（构造出了一个凹函数 <strong>好找最小值</strong>），即每个数据点x对应的模型f（x）与目标值y的误差平方和。</p>
-<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/eab15e6c872545b0966bd2e4bdfbb5e6.jpg" alt="eab15e6c872545b0966bd2e4bdfbb5e6"></p>
-<p>利用误差函数的概念，可将“确定最符合训练数据的参数a、b”改为“确定参数a、b，使误差函数最小化”。</p>
-<p>计算一下训练数据的误差函数。</p>
-<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/f034ae19ccd24534aee4dc35a0b3023b.jpg" alt="f034ae19ccd24534aee4dc35a0b3023b"></p>
-<p>上面的等式就是要求最小值的误差函数。但是，怎样才能找到参数a、b，得到此函数的最小值呢？为启发思维，需要将该函数视觉化。</p>
-<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/568b54f271654a15b2daf448b79cc3c3.jpg" alt="568b54f271654a15b2daf448b79cc3c3"></p>
-<p>但是无论真么改变函数f（x）都只是改变带入的数据 不影响<strong>RSS的形状</strong></p>
-<h2 id="内生性"><a href="#内生性" class="headerlink" title="内生性"></a>内生性</h2><h3 id="引例"><a href="#引例" class="headerlink" title="引例"></a>引例</h3><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617110057.png" alt="QQ截图20200617110057"></p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617110419.png" alt="QQ截图20200617110419"></p>
-<p>相关就是内生性</p>
-<p><strong><em>危害：</em></strong>不满足回归系数估计的<strong>无偏</strong>与<strong>一致性</strong></p>
-<p>误差项</p>
-<script type="math/tex; mode=display">
-<Empty \space Math \space Block></script><script type="math/tex; mode=display">
-\hat\mu_i = y_i-\hat\beta_0-\hat\beta_1x_i</script><p>假设 真实的为</p>
-<script type="math/tex; mode=display">
-y_i = \beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3\\
-是\beta_2x_2+\beta_3x_3 么还应该有\beta_0-\hat\beta_0+(\beta_1-\hat\beta_1)x_1?</script><p>那误差项就是 所有与y相关 但是没有添加在模型中的（）</p>
-<p>如果与已经添加的相关就存在内生性</p>
-<h3 id="数学证明"><a href="#数学证明" class="headerlink" title="数学证明"></a>数学证明</h3><p>为什么危害（<strong>无偏</strong>与<strong>一致性</strong>）</p>
-<p>怎么判断内生性</p>
-<h3 id="弱化内生性"><a href="#弱化内生性" class="headerlink" title="弱化内生性"></a>弱化内生性</h3><h4 id="一、区分变量（？）"><a href="#一、区分变量（？）" class="headerlink" title="一、区分变量（？）"></a>一、区分变量（？）</h4><p>原因：解释变量一般很多</p>
-<p>变量分为 </p>
-<ul>
-<li><p>核心解释变量 </p>
-<p>我们最<strong>感兴趣</strong>的变量，因此我们特别希望得到对其系数的 一致估计（当样本容量无限增大时，收敛于待估计参数的真值）</p>
-</li>
-<li><p>控制变量</p>
-<p>我们可能对于这些变量本身并无太大兴趣；而之所以把它们也 放入回归方程，主要是为了“<strong>控制住</strong>”那些对被解释变量有影响的遗漏因素。 </p>
-</li>
-</ul>
-<p>应用：在实际应用中，我们只要保证核心解释变量与𝝁不相关即可。</p>
-<h2 id="虚拟变量"><a href="#虚拟变量" class="headerlink" title="虚拟变量"></a>虚拟变量</h2><p>用于回归中处理<strong>定性变量</strong>，例如性别、地域等</p>
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617115347.png" alt="QQ截图20200617115347"></p>
-<h3 id="多分类"><a href="#多分类" class="headerlink" title="多分类"></a>多分类</h3><p>找出一组作为所有的对照 <strong>两两比较</strong></p>
-<p>可以这样叙述</p>
-<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617115829.png" alt="QQ截图20200617115829"></p>
-<h2 id="回归建模步骤"><a href="#回归建模步骤" class="headerlink" title="回归建模步骤"></a>回归建模步骤</h2><h3 id="一、描述性统计"><a href="#一、描述性统计" class="headerlink" title="一、描述性统计"></a>一、描述性统计</h3><h4 id="指标分类"><a href="#指标分类" class="headerlink" title="指标分类"></a>指标分类<img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617121914.png" alt="QQ截图20200617121914"></h4><h4 id="得到表格"><a href="#得到表格" class="headerlink" title="得到表格"></a>得到表格</h4><ul>
-<li><p>定量数据</p>
-<p>sum（marize）变量1 变量2… 变量n</p>
-</li>
-<li><p>定性数据</p>
-<p>tab（ulate）变量名，gen（A）</p>
-<p>生成对应的频率分布 并 生成变量A1 A2…An</p>
-</li>
-</ul>
-<h3 id="二、回归"><a href="#二、回归" class="headerlink" title="二、回归"></a>二、回归</h3><h4 id="Stata基本OLS"><a href="#Stata基本OLS" class="headerlink" title="Stata基本OLS"></a>Stata基本OLS</h4><p>reg（ress）y x1 x2…xn    (OLS)<img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/001.png" alt="001"></p>
-<p>第二列SS对应的是误差平方和，或称变差。<br>1.第一行为回归平方和或回归变差SSR，表示因变量的预LSSR=测值对其平均值的总偏差。<br>2.第二行为剩余平方和(也称残差平方和或剩余变差)SSE，是因变量对其预测值的总偏差，这个数值越大，拟合效果越差，y的标准误差即由SSE给出。<br>3.第三行为总平方和或总变差SST，表示因变量对其平均值的总偏差。</p>
-<p>第三列df是自由度(degree of freedom)，第一行是回归自由度dfr，等于变量数目，即dfr=m; 第二为残差自由度dfe， 等于样本数目减去变量数目再减1，即有dfe=n-m-1;第三行为总自由度dft，等于样本数目减1，即有dft=n-1。<br>第四列MS是均方差，误差平方和除以相应的自由度<br>1.第一行为回归均方差MSR<br>2.第二行为剩余均方差MSE，数值越小拟合效果越好</p>
-<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/002.png" alt="002"></p>
-<p><strong>F值</strong>，用于线性关系的判定。结合P值对线性关系的显著性进行判断，即弃真概率。所谓“弃真概率”即模型为假的概率，显然1-P便是模型”为真的概率，P值越小越好。对于本例，P=0.0000&lt;0.0001 ,故置信度达到99.99%以上。</p>
-<hr>
-<p><strong>R- Squared</strong>为判定系数(determination coefficignt)，或称拟合优(goodness of fit)，它是相关系数的平方，也是<strong>1-SSR/SST</strong>，y的总偏差中自变量解释的部分。</p>
-<p>(越接近1越好)<strong>预测型回归</strong>一般才会更看重数值的大小</p>
-<p><strong>较小</strong>可能是 数据中可能有<strong>存在异常值</strong>或者数据的<strong>分布极度不均匀</strong></p>
-<hr>
-<p><strong>Adjusted</strong>对应的是校正的判定系数</p>
-<script type="math/tex; mode=display">
-R_a^2= 1-\dfrac{SSE/dfe}{SST/dft}</script><p>我们引入的<strong>自变量越多</strong>，<strong>拟合优度会变大</strong>。但我们<strong>倾向于使用</strong>调整后的拟合优度， 如果新引入的自变量对SSE的减少程度特别少，那么调整后的拟合优度反而会减小</p>
-<hr>
-<p>Root MSE为标准误差( standard error)，数值越小，拟合的效果越好</p>
-<script type="math/tex; mode=display">
-ROOT\ MSE =\sqrt{MSE}</script><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/003.png" alt="003"></p>
-<script type="math/tex; mode=display">
-Std.\ Err.\ 回归系数的标准误差\\
-\sqrt[]{var(\hat\beta_j)} = \sqrt{\dfrac{MSE}{SST_{x_j}(1-R_j^2)}}
-=\sqrt{\dfrac{MSE*VIF_j}{SST_{x_j}}}\\
-R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以x,中不能被其\\它自变量解释的部分, VIF_j变量x_j的方差扩大因子</script><p>T值=Coef./Std. Err.</p>
-<hr>
-<p>P值用于说明回归系数的显著性，一般来说P值&lt;0.1(<em>)表示10%显著水平显著，P值&lt;0.05(\</em>*)表示5%显著水平显著，P值 &lt;0.01(***)表示1%显著水平显著</p>
-<h4 id="标准化回归"><a href="#标准化回归" class="headerlink" title="标准化回归"></a>标准化回归</h4><p>通过<strong>去除量纲</strong>的影响来<strong>反映</strong>自变量之间的<strong>重要程度</strong></p>
-<p>regress y x1 x2 … xk,beta</p>
-<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617131700.png" alt="QQ截图20200617131700"></p>
-<p>只是多了最后那<strong>一列标准化回归系数</strong> 对数据进行标准化处理<strong>不会影响</strong>回归系数的标准误，也不会影响显著性.</p>
-<h3 id="三、检验"><a href="#三、检验" class="headerlink" title="三、检验"></a>三、检验</h3><p><strong>先进行</strong>OLS得到回归结果后 <strong>验证</strong>扰动项是不是存在异方差，多重共线性</p>
-<h4 id="异方差"><a href="#异方差" class="headerlink" title="异方差"></a>异方差</h4><p><strong>扰动项</strong>存在异方差</p>
-<p>（1）OLS估计出来的回归系数是无偏、一致的。 </p>
-<p>（2）<strong>假设检验</strong>无法使用（构造的统计量失效了）。</p>
-<p>（3）OLS估计量不再是最优线性无偏估计量（BLUE）。</p>
-<h5 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h5><ul>
-<li><p>画图检验</p>
-<ul>
-<li><p>rvfplot  (画残差与拟合值的散点图） </p>
-</li>
-<li><p>rvpplotx   (画残差与自变量x的散点图)</p>
-<p>画图<strong>看</strong>出来<strong>大致</strong></p>
-</li>
-</ul>
-</li>
-<li><p>BP检验</p>
-<p>estat hettest ,rhs iid</p>
-<p>原假设：扰动项不存在异方差 P值小于0.05，说明在95%的置信水平下拒绝原假设，即我们认为扰动项存在异方差。</p>
-</li>
-<li><p>怀特检验</p>
-<p>estat imtest,white</p>
-<p>怀特检验原假设：不存在异方差</p>
-</li>
-</ul>
-<p>去除异方差的影响</p>
-<h4 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h4><h5 id="检验-1"><a href="#检验-1" class="headerlink" title="检验"></a>检验</h5><p>estat  vif</p>
-<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617135038.png" alt="QQ截图20200617135038"></p>
-<p><strong>VIF &gt; 10</strong>则认为存在严重的多重共线性</p>
-<h3 id="四、改进方案"><a href="#四、改进方案" class="headerlink" title="四、改进方案"></a>四、改进方案</h3><h4 id="异方差-1"><a href="#异方差-1" class="headerlink" title="异方差"></a>异方差</h4><h5 id="OLS-稳健的标准误"><a href="#OLS-稳健的标准误" class="headerlink" title="OLS+稳健的标准误"></a>OLS+稳健的标准误</h5><p>这是最简单，也是目前通用的方法。只要<strong>样本容量较大</strong>，即使在异方差的情况下，若使用稳健标准误，则所有<strong>参数估计</strong>、<strong>假设检验</strong>均可照常进行。换言之， 只要使用了稳健标准误，就可以与异方差“和平共处”了</p>
-<p>regress y x1 x2 … xk,robust</p>
-<h4 id="多重共线性-1"><a href="#多重共线性-1" class="headerlink" title="多重共线性"></a>多重共线性</h4><p>(1)如果<strong>不关心具体的回归系数</strong>，而只关心整个方程<strong>预测</strong>被解释变量的能力，则通常可以不必理会多重共线性（假设你的整个方程是显著的）。这是因为多重共线性的<strong>主要后果</strong>是使得对<strong>单个</strong>变量的贡献估计不准，但所有变量的<strong>整体效应</strong>仍可以较准确地估计</p>
-<p>(2)如果关心具体的回归系数，但多重共线性并<strong>不影响所关心变量的显著性</strong>，那 么也可以不必理会。即使在有方差膨胀的情况下，这些系数依然显著;如果没有 多重共线性，则<strong>只会更加显著</strong></p>
-<p>(3) 如果多重共线性影响到所关心变量的显著性，则需要增大样本容量，剔除导 致严重共线性的变量（不要轻易删除哦，因为可能会有内生性的影响），或对 模型设定进行修改。</p>
+    <title>Native方法</title>
+    <url>/2020/07/02/native%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="native方法"><a href="#native方法" class="headerlink" title="native方法"></a>native方法</h1><p>文章介绍了native方法的大致概念，以及如何实现一个native方法</p>
+<a id="more"></a>
+<blockquote>
+<p> “A native method is a Java method whose implementation is provided by non-java code.”</p>
+</blockquote>
+<h2 id="native方法的概念"><a href="#native方法的概念" class="headerlink" title="native方法的概念"></a>native方法的概念</h2><p>简单地讲，一个Native Method就是一个java调用非java代码的接口。一个Native Method是这样一个java的方法：该方法的实现由<strong>非java语言</strong>在外部<strong>实现</strong>，比如C。这个特征并非java所特有，很多其它的编程语言都有这一机制，比如在C＋＋中，你可以用extern “C”告知C＋＋编译器去调用一个C的函数。</p>
+<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><h3 id="外界环境交互"><a href="#外界环境交互" class="headerlink" title="外界环境交互"></a>外界环境交互</h3><p>​    这是本地方法存在的主要原因，你可以想想java需要与一些<strong>底层系统如操作系统或某些硬件交换</strong>信息时的情况。本地方法正是这样一种交流机制：它为我们提供了一个非常简洁的<strong>接口</strong>，而且我们无需去了解java应用之外的繁琐的细节。<br>JVM（java虚拟机）支持着java语言本身和运行时库，它是java程序赖以生存的平台，它由一个解释器（解释字节码）和一些连接到本地代码的库组成。然而不管怎样，它毕竟不是一个完整的系统，它经常依赖于一些底层（underneath在下面的）系统的支持。这些底层系统常常是强大的操作系统。通过使用本地方法，我们得以用java实现了jre（运行环境）的与底层系统的交互，甚至JVM的一些部分就是用C写的，还有，如果我们要使用一些java语言本身没有提供封装的操作系统的特性时，我们也需要使用本地方法。<br>  Sun的解释器是用C实现的，这使得它能像一些普通的C一样与外部交互。jre大部分是用java实现的，它也通过一些本地方法与外界交互。例如：类java.lang.Thread 的 setPriority()方法是用java实现的，但是它实现调用的是该类里的本地方法setPriority0()。这个本地方法是用C实现的，并被植入JVM内部，在Windows 95的平台上，这个本地方法最终将调Win32 SetPriority() API。这是一个本地方法的具体实现<strong>由JVM直接提供</strong>，更多的情况是本地方法由<strong>外部的动态链接库（external dynamic link library）提供</strong>，然后被JVM调用。</p>
+<h2 id="坏处"><a href="#坏处" class="headerlink" title="坏处"></a>坏处</h2><p>对 Java 外部的调用通常不能<strong>移植</strong>到其他平台上，在 <strong>applet 中还可能引发安全异常</strong>。实现本地代码将使您的 Java 应用程序无法通过 100% 纯 Java 测试。但是，如果必须执行本地调用，则要考虑几个准则：</p>
+<ol>
+<li>将您的所有本地方法都<strong>封装在单个类</strong>中，这个类调用单个 DLL。对于每种目标操作系统，都可以<strong>用特定于适当平台的版本替换</strong>这个 DLL。这样就可以将本地代码的影响减至最小，并有助于将以后所需的移植问题包含在内。</li>
+<li><strong>本地方法要简单</strong>。尽量将您的 DLL 对任何第三方（包括 Microsoft）运行时 DLL 的依赖减到最小。使您的本地方法尽量独立，以将加载您的 DLL 和应用程序所需的开销减到最小。如果需要运行时 DLL，必须随应用程序一起提供它们。</li>
+</ol>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>通过外部DLL实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyNative</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showParms</span><span class="params">( String s, <span class="keyword">int</span> i, <span class="keyword">boolean</span> b )</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">  showParms0( s, i , b );<span class="comment">//包装起来，将本地方法同代码的其余部分分隔开来</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">showParms0</span><span class="params">( String s, <span class="keyword">int</span> i, <span class="keyword">boolean</span> b )</span></span>;<span class="comment">//本地方法声明为private</span></span><br><span class="line"> <span class="keyword">static</span><span class="comment">//加载包含本地方法实现的DLL</span></span><br><span class="line"> &#123;</span><br><span class="line">  System.loadLibrary( <span class="string">"MyNative"</span> );</span><br><span class="line"> &#125;</span><br><span class="line"> &#123;</span><br><span class="line">  System.load(<span class="string">"C:\\Users\\Administrator\\Desktop\\com\\***.dll"</span>);<span class="comment">//也有这样写的，直接调用地址</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="生成代码的头文件"><a href="#生成代码的头文件" class="headerlink" title="生成代码的头文件"></a>生成代码的头文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">javac MyNative.java（将 .java 编译为 .class） </span><br><span class="line">javah -jni </span><br><span class="line">     MyNative（生成 .h 文件）</span><br></pre></td></tr></table></figure>
+<p>产生的头文件如下图所示</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Class:     MyNative</span></span><br><span class="line"><span class="comment"> * Method:    showParms0</span></span><br><span class="line"><span class="comment"> * Signature: (Ljava/lang/String;IZ)V</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">//本地方法原型 本来产生的没有这一行</span></span><br><span class="line">JNIEXPORT <span class="keyword">void</span> JNICALL Java_MyNative_showParms0</span><br><span class="line">  (JNIEnv *, jobject, jstring, jint, jboolean);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>Environment指针</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#96;&#96;&#96;jobject&#96;&#96;&#96;指向在此 Java 代码中以及变量类型的原型和其他声明</span><br><span class="line"></span><br><span class="line">实例化的 Java 对象 MyNative 的一个句柄（Handle;来标识对象或者是项目的标识符）</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;c</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &quot;MyNative.h&quot;&#x2F;&#x2F;包含头文件jni.h(JNI API，变量类型的原型以及其他声明)</span><br><span class="line">&#x2F;&#x2F;&quot;&quot;与&lt;&gt;的区别&quot;&quot;会优先再当前目录下查找，没有再找系统的include目录&lt;&gt;直接再include中找。</span><br><span class="line">JNIEXPORT void JNICALL Java_MyNative_showParms0</span><br><span class="line">    &#x2F;&#x2F;起名字 包名+类名+方法名</span><br><span class="line">  (JNIEnv *env, jobject obj, jstring s, jint i, jboolean b)</span><br><span class="line">&#123;</span><br><span class="line">  const char* szStr &#x3D; (*env)-&gt;GetStringUTFChars( env, s, 0 );&#x2F;&#x2F;GetStringUTFChars:用来根据 Java 字符串或 jstring 参数创建 C 字符串。这是必需的，因为在本地代码中不能直接读取 Java 字符串，而必须将其转换为 C 字符串或 Unicode。</span><br><span class="line">  printf( &quot;String &#x3D; [%s]\n&quot;, szStr );</span><br><span class="line">  printf( &quot;int &#x3D; %d\n&quot;, i );</span><br><span class="line">  printf( &quot;boolean &#x3D; %s\n&quot;, (b&#x3D;&#x3D;JNI_TRUE ? &quot;true&quot; : &quot;false&quot;) );</span><br><span class="line">  (*env)-&gt;ReleaseStringUTFChars( env, s, szStr );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有关转换 Java 字符串的详细信息，请参阅标题为 NLS Strings and JNI 的一篇论文。但是，jboolean 和 jint 值可以直接使用。</p>
+<h3 id="DLL文件的创建"><a href="#DLL文件的创建" class="headerlink" title="DLL文件的创建"></a>DLL文件的创建</h3><p>loadLibrary加载路径是按照java.libary.path进行查询所以应该找到自己环境变量的path的值，把dll文件放在path中配置的第一个路径下。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>文章参考了<a href="https://www.ibm.com/developerworks/cn/java/jnimthds/" target="_blank" rel="noopener">IBM</a>的一个文章 感觉介绍的很详细 </p>
+<p>百度百科<a href="https://baike.baidu.com/item/JNI/9412164?fr=aladdin" target="_blank" rel="noopener">JNI</a>以前不怎么用百度百科的 但是这个的确很详细 也是改变了我对百度的印象。。。</p>
+<p>IT 达人的<a href="https://www.cnblogs.com/szlbm/p/5504603.html" target="_blank" rel="noopener">自己实现一个Native方法</a>对于如何实际操作很详细了，包括了本文没有涉及的<strong>利用VS生成dll</strong>的部分</p>
+<p>本文对上述博客 网站所写的内容做了总结摘录了很大一部分内容</p>
 ]]></content>
       <categories>
-        <category>数学建模</category>
-        <category>多元线性回归</category>
+        <category>Java基础</category>
+        <category>Native方法</category>
       </categories>
       <tags>
-        <tag>数学建模</tag>
-        <tag>多元线性回归</tag>
+        <tag>Java基础</tag>
+        <tag>Native方法</tag>
       </tags>
   </entry>
   <entry>
@@ -254,6 +163,133 @@ R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以
       <tags>
         <tag>数学建模</tag>
         <tag>层次分析法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多元线性回归</title>
+    <url>/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
+    <content><![CDATA[<h1 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h1><a id="more"></a>
+<h2 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h2><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617103139.png" alt="QQ截图20200617103139"></p>
+<h2 id="什么是线性"><a href="#什么是线性" class="headerlink" title="什么是线性"></a>什么是线性</h2><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617103811.png" alt="QQ截图20200617103811"></p>
+<h3 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h3><p><a href="http://blog.itpub.net/29829936/viewspace-2649379/" target="_blank" rel="noopener">http://blog.itpub.net/29829936/viewspace-2649379/</a> 来自 “ ITPUB博客 </p>
+<p>线性是指 <strong>参数</strong>是线性关系 ln（xi）只是对 xi 进行了<strong>处理</strong>不影响什么</p>
+<p>当前目标是确定<strong>最符合训练数据</strong>的<strong>参数a和b</strong>的值。</p>
+<p>这可通过测量每个输入x的实际目标值y和模型f（x）之间的失配来实现，并将<strong>失配最小化</strong>。这种失配（\= 最小值）被称为误差函数。</p>
+<p>有多种误差函数可供选择，但其中最简单的要数<strong>RSS</strong>（构造出了一个凹函数 <strong>好找最小值</strong>），即每个数据点x对应的模型f（x）与目标值y的误差平方和。</p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/eab15e6c872545b0966bd2e4bdfbb5e6.jpg" alt="eab15e6c872545b0966bd2e4bdfbb5e6"></p>
+<p>利用误差函数的概念，可将“确定最符合训练数据的参数a、b”改为“确定参数a、b，使误差函数最小化”。</p>
+<p>计算一下训练数据的误差函数。</p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/f034ae19ccd24534aee4dc35a0b3023b.jpg" alt="f034ae19ccd24534aee4dc35a0b3023b"></p>
+<p>上面的等式就是要求最小值的误差函数。但是，怎样才能找到参数a、b，得到此函数的最小值呢？为启发思维，需要将该函数视觉化。</p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/568b54f271654a15b2daf448b79cc3c3.jpg" alt="568b54f271654a15b2daf448b79cc3c3"></p>
+<p>但是无论真么改变函数f（x）都只是改变带入的数据 不影响<strong>RSS的形状</strong></p>
+<h2 id="内生性"><a href="#内生性" class="headerlink" title="内生性"></a>内生性</h2><h3 id="引例"><a href="#引例" class="headerlink" title="引例"></a>引例</h3><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617110057.png" alt="QQ截图20200617110057"></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617110419.png" alt="QQ截图20200617110419"></p>
+<p>相关就是内生性</p>
+<p><strong><em>危害：</em></strong>不满足回归系数估计的<strong>无偏</strong>与<strong>一致性</strong></p>
+<p>误差项</p>
+<script type="math/tex; mode=display">
+\hat\mu_i = y_i-\hat\beta_0-\hat\beta_1x_i</script><p>假设 真实的为</p>
+<script type="math/tex; mode=display">
+y_i = \beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3\\
+是\beta_2x_2+\beta_3x_3 么还应该有\beta_0-\hat\beta_0+(\beta_1-\hat\beta_1)x_1?</script><p>那误差项就是 所有与y相关 但是没有添加在模型中的（）</p>
+<p>如果与已经添加的相关就存在内生性</p>
+<h3 id="数学证明"><a href="#数学证明" class="headerlink" title="数学证明"></a>数学证明</h3><p>为什么危害（<strong>无偏</strong>与<strong>一致性</strong>）</p>
+<p>怎么判断内生性</p>
+<h3 id="弱化内生性"><a href="#弱化内生性" class="headerlink" title="弱化内生性"></a>弱化内生性</h3><h4 id="一、区分变量（？）"><a href="#一、区分变量（？）" class="headerlink" title="一、区分变量（？）"></a>一、区分变量（？）</h4><p>原因：解释变量一般很多</p>
+<p>变量分为 </p>
+<ul>
+<li><p>核心解释变量 </p>
+<p>我们最<strong>感兴趣</strong>的变量，因此我们特别希望得到对其系数的 一致估计（当样本容量无限增大时，收敛于待估计参数的真值）</p>
+</li>
+<li><p>控制变量</p>
+<p>我们可能对于这些变量本身并无太大兴趣；而之所以把它们也 放入回归方程，主要是为了“<strong>控制住</strong>”那些对被解释变量有影响的遗漏因素。 </p>
+</li>
+</ul>
+<p>应用：在实际应用中，我们只要保证核心解释变量与𝝁不相关即可。</p>
+<h2 id="虚拟变量"><a href="#虚拟变量" class="headerlink" title="虚拟变量"></a>虚拟变量</h2><p>用于回归中处理<strong>定性变量</strong>，例如性别、地域等</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617115347.png" alt="QQ截图20200617115347"></p>
+<h3 id="多分类"><a href="#多分类" class="headerlink" title="多分类"></a>多分类</h3><p>找出一组作为所有的对照 <strong>两两比较</strong></p>
+<p>可以这样叙述</p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617115829.png" alt="QQ截图20200617115829"></p>
+<h2 id="回归建模步骤"><a href="#回归建模步骤" class="headerlink" title="回归建模步骤"></a>回归建模步骤</h2><h3 id="一、描述性统计"><a href="#一、描述性统计" class="headerlink" title="一、描述性统计"></a>一、描述性统计</h3><h4 id="指标分类"><a href="#指标分类" class="headerlink" title="指标分类"></a>指标分类<img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617121914.png" alt="QQ截图20200617121914"></h4><h4 id="得到表格"><a href="#得到表格" class="headerlink" title="得到表格"></a>得到表格</h4><ul>
+<li><p>定量数据</p>
+<p>sum（marize）变量1 变量2… 变量n</p>
+</li>
+<li><p>定性数据</p>
+<p>tab（ulate）变量名，gen（A）</p>
+<p>生成对应的频率分布 并 生成变量A1 A2…An</p>
+</li>
+</ul>
+<h3 id="二、回归"><a href="#二、回归" class="headerlink" title="二、回归"></a>二、回归</h3><h4 id="Stata基本OLS"><a href="#Stata基本OLS" class="headerlink" title="Stata基本OLS"></a>Stata基本OLS</h4><p>reg（ress）y x1 x2…xn    (OLS)<img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/001.png" alt="001"></p>
+<p>第二列SS对应的是误差平方和，或称变差。<br>1.第一行为回归平方和或回归变差SSR，表示因变量的预LSSR=测值对其平均值的总偏差。<br>2.第二行为剩余平方和(也称残差平方和或剩余变差)SSE，是因变量对其预测值的总偏差，这个数值越大，拟合效果越差，y的标准误差即由SSE给出。<br>3.第三行为总平方和或总变差SST，表示因变量对其平均值的总偏差。</p>
+<p>第三列df是自由度(degree of freedom)，第一行是回归自由度dfr，等于变量数目，即dfr=m; 第二为残差自由度dfe， 等于样本数目减去变量数目再减1，即有dfe\=n-m-1;第三行为总自由度dft，等于样本数目减1，即有dft\=n-1。<br>第四列MS是均方差，误差平方和除以相应的自由度<br>1.第一行为回归均方差MSR<br>2.第二行为剩余均方差MSE，数值越小拟合效果越好</p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/002.png" alt="002"></p>
+<p><strong>F值</strong>，用于线性关系的判定。结合P值对线性关系的显著性进行判断，即弃真概率。所谓“弃真概率”即模型为假的概率，显然1-P便是模型”为真的概率，P值越小越好。对于本例，P=0.0000&lt;0.0001 ,故置信度达到99.99%以上。</p>
+<hr>
+<p><strong>R- Squared</strong>为判定系数(determination coefficignt)，或称拟合优(goodness of fit)，它是相关系数的平方，也是<strong>1-SSR/SST</strong>，y的总偏差中自变量解释的部分。</p>
+<p>(越接近1越好)<strong>预测型回归</strong>一般才会更看重数值的大小</p>
+<p><strong>较小</strong>可能是 数据中可能有<strong>存在异常值</strong>或者数据的<strong>分布极度不均匀</strong></p>
+<hr>
+<p><strong>Adjusted</strong>对应的是校正的判定系数</p>
+<script type="math/tex; mode=display">
+R_a^2= 1-\dfrac{SSE/dfe}{SST/dft}</script><p>我们引入的<strong>自变量越多</strong>，<strong>拟合优度会变大</strong>。但我们<strong>倾向于使用</strong>调整后的拟合优度， 如果新引入的自变量对SSE的减少程度特别少，那么调整后的拟合优度反而会减小</p>
+<hr>
+<p>Root MSE为标准误差( standard error)，数值越小，拟合的效果越好</p>
+<script type="math/tex; mode=display">
+ROOT\ MSE =\sqrt{MSE}</script><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/003.png" alt="003"></p>
+<script type="math/tex; mode=display">
+Std.\ Err.\ 回归系数的标准误差\\
+\sqrt[]{var(\hat\beta_j)} = \sqrt{\dfrac{MSE}{SST_{x_j}(1-R_j^2)}}
+=\sqrt{\dfrac{MSE*VIF_j}{SST_{x_j}}}\\
+R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以x,中不能被其\\它自变量解释的部分, VIF_j变量x_j的方差扩大因子</script><p>T值\=Coef./Std. Err.</p>
+<hr>
+<p>P值用于说明回归系数的显著性，一般来说P值&lt;0.1(<em>)表示10%显著水平显著，P值&lt;0.05(\</em>*)表示5%显著水平显著，P值 \&lt;0.01(***)表示1%显著水平显著</p>
+<h4 id="标准化回归"><a href="#标准化回归" class="headerlink" title="标准化回归"></a>标准化回归</h4><p>通过<strong>去除量纲</strong>的影响来<strong>反映</strong>自变量之间的<strong>重要程度</strong></p>
+<p>regress y x1 x2 … xk,beta</p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617131700.png" alt="QQ截图20200617131700"></p>
+<p>只是多了最后那<strong>一列标准化回归系数</strong> 对数据进行标准化处理<strong>不会影响</strong>回归系数的标准误，也不会影响显著性.</p>
+<h3 id="三、检验"><a href="#三、检验" class="headerlink" title="三、检验"></a>三、检验</h3><p><strong>先进行</strong>OLS得到回归结果后 <strong>验证</strong>扰动项是不是存在异方差，多重共线性</p>
+<h4 id="异方差"><a href="#异方差" class="headerlink" title="异方差"></a>异方差</h4><p><strong>扰动项</strong>存在异方差</p>
+<p>（1）OLS估计出来的回归系数是无偏、一致的。 </p>
+<p>（2）<strong>假设检验</strong>无法使用（构造的统计量失效了）。</p>
+<p>（3）OLS估计量不再是最优线性无偏估计量（BLUE）。</p>
+<h5 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h5><ul>
+<li><p>画图检验</p>
+<ul>
+<li><p>rvfplot  (画残差与拟合值的散点图） </p>
+</li>
+<li><p>rvpplotx   (画残差与自变量x的散点图)</p>
+<p>画图<strong>看</strong>出来<strong>大致</strong></p>
+</li>
+</ul>
+</li>
+<li><p>BP检验</p>
+<p>estat hettest ,rhs iid</p>
+<p>原假设：扰动项不存在异方差 P值小于0.05，说明在95%的置信水平下拒绝原假设，即我们认为扰动项存在异方差。</p>
+</li>
+<li><p>怀特检验</p>
+<p>estat imtest,white</p>
+<p>怀特检验原假设：不存在异方差</p>
+</li>
+</ul>
+<p>去除异方差的影响</p>
+<h4 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h4><h5 id="检验-1"><a href="#检验-1" class="headerlink" title="检验"></a>检验</h5><p>estat  vif</p>
+<p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617135038.png" alt="QQ截图20200617135038"></p>
+<p><strong>VIF &gt; 10</strong>则认为存在严重的多重共线性</p>
+<h3 id="四、改进方案"><a href="#四、改进方案" class="headerlink" title="四、改进方案"></a>四、改进方案</h3><h4 id="异方差-1"><a href="#异方差-1" class="headerlink" title="异方差"></a>异方差</h4><h5 id="OLS-稳健的标准误"><a href="#OLS-稳健的标准误" class="headerlink" title="OLS+稳健的标准误"></a>OLS+稳健的标准误</h5><p>这是最简单，也是目前通用的方法。只要<strong>样本容量较大</strong>，即使在异方差的情况下，若使用稳健标准误，则所有<strong>参数估计</strong>、<strong>假设检验</strong>均可照常进行。换言之， 只要使用了稳健标准误，就可以与异方差“和平共处”了</p>
+<p>regress y x1 x2 … xk,robust</p>
+<h4 id="多重共线性-1"><a href="#多重共线性-1" class="headerlink" title="多重共线性"></a>多重共线性</h4><p>(1)如果<strong>不关心具体的回归系数</strong>，而只关心整个方程<strong>预测</strong>被解释变量的能力，则通常可以不必理会多重共线性（假设你的整个方程是显著的）。这是因为多重共线性的<strong>主要后果</strong>是使得对<strong>单个</strong>变量的贡献估计不准，但所有变量的<strong>整体效应</strong>仍可以较准确地估计</p>
+<p>(2)如果关心具体的回归系数，但多重共线性并<strong>不影响所关心变量的显著性</strong>，那 么也可以不必理会。即使在有方差膨胀的情况下，这些系数依然显著;如果没有 多重共线性，则<strong>只会更加显著</strong></p>
+<p>(3) 如果多重共线性影响到所关心变量的显著性，则需要增大样本容量，剔除导 致严重共线性的变量（不要轻易删除哦，因为可能会有内生性的影响），或对 模型设定进行修改。</p>
+]]></content>
+      <categories>
+        <category>数学建模</category>
+        <category>多元线性回归</category>
+      </categories>
+      <tags>
+        <tag>数学建模</tag>
+        <tag>多元线性回归</tag>
       </tags>
   </entry>
   <entry>
@@ -355,43 +391,6 @@ H_0:r = 0,H_1:r \neq0</script><h4 id="二、构造统计量"><a href="#二、构
       <tags>
         <tag>数学建模</tag>
         <tag>相关系数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Native方法</title>
-    <url>/2020/07/02/native%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="native方法"><a href="#native方法" class="headerlink" title="native方法"></a>native方法</h1><p>文章介绍了native方法的大致概念，以及如何实现一个native方法</p>
-<a id="more"></a>
-<blockquote>
-<p> “A native method is a Java method whose implementation is provided by non-java code.”</p>
-</blockquote>
-<h2 id="native方法的概念"><a href="#native方法的概念" class="headerlink" title="native方法的概念"></a>native方法的概念</h2><p>简单地讲，一个Native Method就是一个java调用非java代码的接口。一个Native Method是这样一个java的方法：该方法的实现由<strong>非java语言</strong>在外部<strong>实现</strong>，比如C。这个特征并非java所特有，很多其它的编程语言都有这一机制，比如在C＋＋中，你可以用extern “C”告知C＋＋编译器去调用一个C的函数。</p>
-<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><h3 id="外界环境交互"><a href="#外界环境交互" class="headerlink" title="外界环境交互"></a>外界环境交互</h3><p>​    这是本地方法存在的主要原因，你可以想想java需要与一些<strong>底层系统如操作系统或某些硬件交换</strong>信息时的情况。本地方法正是这样一种交流机制：它为我们提供了一个非常简洁的<strong>接口</strong>，而且我们无需去了解java应用之外的繁琐的细节。<br>JVM（java虚拟机）支持着java语言本身和运行时库，它是java程序赖以生存的平台，它由一个解释器（解释字节码）和一些连接到本地代码的库组成。然而不管怎样，它毕竟不是一个完整的系统，它经常依赖于一些底层（underneath在下面的）系统的支持。这些底层系统常常是强大的操作系统。通过使用本地方法，我们得以用java实现了jre（运行环境）的与底层系统的交互，甚至JVM的一些部分就是用C写的，还有，如果我们要使用一些java语言本身没有提供封装的操作系统的特性时，我们也需要使用本地方法。<br>  Sun的解释器是用C实现的，这使得它能像一些普通的C一样与外部交互。jre大部分是用java实现的，它也通过一些本地方法与外界交互。例如：类java.lang.Thread 的 setPriority()方法是用java实现的，但是它实现调用的是该类里的本地方法setPriority0()。这个本地方法是用C实现的，并被植入JVM内部，在Windows 95的平台上，这个本地方法最终将调Win32 SetPriority() API。这是一个本地方法的具体实现<strong>由JVM直接提供</strong>，更多的情况是本地方法由<strong>外部的动态链接库（external dynamic link library）提供</strong>，然后被JVM调用。</p>
-<h2 id="坏处"><a href="#坏处" class="headerlink" title="坏处"></a>坏处</h2><p>对 Java 外部的调用通常不能<strong>移植</strong>到其他平台上，在 <strong>applet 中还可能引发安全异常</strong>。实现本地代码将使您的 Java 应用程序无法通过 100% 纯 Java 测试。但是，如果必须执行本地调用，则要考虑几个准则：</p>
-<ol>
-<li>将您的所有本地方法都<strong>封装在单个类</strong>中，这个类调用单个 DLL。对于每种目标操作系统，都可以<strong>用特定于适当平台的版本替换</strong>这个 DLL。这样就可以将本地代码的影响减至最小，并有助于将以后所需的移植问题包含在内。</li>
-<li><strong>本地方法要简单</strong>。尽量将您的 DLL 对任何第三方（包括 Microsoft）运行时 DLL 的依赖减到最小。使您的本地方法尽量独立，以将加载您的 DLL 和应用程序所需的开销减到最小。如果需要运行时 DLL，必须随应用程序一起提供它们。</li>
-</ol>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>通过外部DLL实现</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyNative</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showParms</span><span class="params">( String s, <span class="keyword">int</span> i, <span class="keyword">boolean</span> b )</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">  showParms0( s, i , b );<span class="comment">//包装起来，将本地方法同代码的其余部分分隔开来</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">showParms0</span><span class="params">( String s, <span class="keyword">int</span> i, <span class="keyword">boolean</span> b )</span></span>;<span class="comment">//本地方法声明为private</span></span><br><span class="line"> <span class="keyword">static</span><span class="comment">//加载包含本地方法实现的DLL</span></span><br><span class="line"> &#123;</span><br><span class="line">  System.loadLibrary( <span class="string">"MyNative"</span> );</span><br><span class="line"> &#125;</span><br><span class="line"> &#123;</span><br><span class="line">  System.load(<span class="string">"C:\\Users\\Administrator\\Desktop\\com\\***.dll"</span>);<span class="comment">//也有这样写的，直接调用地址</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="生成代码的头文件"><a href="#生成代码的头文件" class="headerlink" title="生成代码的头文件"></a>生成代码的头文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">javac MyNative.java（将 .java 编译为 .class） </span><br><span class="line">javah -jni </span><br><span class="line">     MyNative（生成 .h 文件）</span><br></pre></td></tr></table></figure>
-<p>产生的头文件如下图所示</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Class:     MyNative</span></span><br><span class="line"><span class="comment"> * Method:    showParms0</span></span><br><span class="line"><span class="comment"> * Signature: (Ljava/lang/String;IZ)V</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">//本地方法原型 本来产生的没有这一行</span></span><br><span class="line">JNIEXPORT <span class="keyword">void</span> JNICALL Java_MyNative_showParms0</span><br><span class="line">  (JNIEnv *, jobject, jstring, jint, jboolean);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>Environment指针</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#96;&#96;&#96;jobject&#96;&#96;&#96;指向在此 Java 代码中以及变量类型的原型和其他声明</span><br><span class="line"></span><br><span class="line">实例化的 Java 对象 MyNative 的一个句柄（Handle;来标识对象或者是项目的标识符）</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;c</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &quot;MyNative.h&quot;&#x2F;&#x2F;包含头文件jni.h(JNI API，变量类型的原型以及其他声明)</span><br><span class="line">&#x2F;&#x2F;&quot;&quot;与&lt;&gt;的区别&quot;&quot;会优先再当前目录下查找，没有再找系统的include目录&lt;&gt;直接再include中找。</span><br><span class="line">JNIEXPORT void JNICALL Java_MyNative_showParms0</span><br><span class="line">    &#x2F;&#x2F;起名字 包名+类名+方法名</span><br><span class="line">  (JNIEnv *env, jobject obj, jstring s, jint i, jboolean b)</span><br><span class="line">&#123;</span><br><span class="line">  const char* szStr &#x3D; (*env)-&gt;GetStringUTFChars( env, s, 0 );&#x2F;&#x2F;GetStringUTFChars:用来根据 Java 字符串或 jstring 参数创建 C 字符串。这是必需的，因为在本地代码中不能直接读取 Java 字符串，而必须将其转换为 C 字符串或 Unicode。</span><br><span class="line">  printf( &quot;String &#x3D; [%s]\n&quot;, szStr );</span><br><span class="line">  printf( &quot;int &#x3D; %d\n&quot;, i );</span><br><span class="line">  printf( &quot;boolean &#x3D; %s\n&quot;, (b&#x3D;&#x3D;JNI_TRUE ? &quot;true&quot; : &quot;false&quot;) );</span><br><span class="line">  (*env)-&gt;ReleaseStringUTFChars( env, s, szStr );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有关转换 Java 字符串的详细信息，请参阅标题为 NLS Strings and JNI 的一篇论文。但是，jboolean 和 jint 值可以直接使用。</p>
-<h3 id="DLL文件的创建"><a href="#DLL文件的创建" class="headerlink" title="DLL文件的创建"></a>DLL文件的创建</h3><p>loadLibrary加载路径是按照java.libary.path进行查询所以应该找到自己环境变量的path的值，把dll文件放在path中配置的第一个路径下。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>文章参考了<a href="https://www.ibm.com/developerworks/cn/java/jnimthds/" target="_blank" rel="noopener">IBM</a>的一个文章 感觉介绍的很详细 </p>
-<p>百度百科<a href="https://baike.baidu.com/item/JNI/9412164?fr=aladdin" target="_blank" rel="noopener">JNI</a>以前不怎么用百度百科的 但是这个的确很详细 也是改变了我对百度的印象。。。</p>
-<p>IT 达人的<a href="https://www.cnblogs.com/szlbm/p/5504603.html" target="_blank" rel="noopener">自己实现一个Native方法</a>对于如何实际操作很详细了，包括了本文没有涉及的<strong>利用VS生成dll</strong>的部分</p>
-<p>本文对上述博客 网站所写的内容做了总结摘录了很大一部分内容</p>
-]]></content>
-      <categories>
-        <category>Java基础</category>
-        <category>Native方法</category>
-      </categories>
-      <tags>
-        <tag>Java基础</tag>
-        <tag>Native方法</tag>
       </tags>
   </entry>
 </search>

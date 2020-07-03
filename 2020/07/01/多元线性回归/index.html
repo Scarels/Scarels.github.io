@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.1">
@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://scarels.github.io/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ%E6%88%AA%E5%9B%BE20200617131700.png">
 <meta property="og:image" content="https://scarels.github.io/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ%E6%88%AA%E5%9B%BE20200617135038.png">
 <meta property="article:published_time" content="2020-07-01T10:41:11.000Z">
-<meta property="article:modified_time" content="2020-07-01T13:28:45.324Z">
+<meta property="article:modified_time" content="2020-07-03T15:53:22.042Z">
 <meta property="article:author" content="Scarels">
 <meta property="article:tag" content="数学建模">
 <meta property="article:tag" content="多元线性回归">
@@ -103,11 +103,11 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="aScarels" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="alternate" href="/atom.xml" title="aScarels" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,10 +269,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-01 18:41:11 / Modified: 21:28:45" itemprop="dateCreated datePublished" datetime="2020-07-01T18:41:11+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-01 18:41:11" itemprop="dateCreated datePublished" datetime="2020-07-01T18:41:11+08:00">2020-07-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-03 23:53:22" itemprop="dateModified" datetime="2020-07-03T23:53:22+08:00">2020-07-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -318,7 +324,7 @@
 <h3 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h3><p><a href="http://blog.itpub.net/29829936/viewspace-2649379/" target="_blank" rel="noopener">http://blog.itpub.net/29829936/viewspace-2649379/</a> 来自 “ ITPUB博客 </p>
 <p>线性是指 <strong>参数</strong>是线性关系 ln（xi）只是对 xi 进行了<strong>处理</strong>不影响什么</p>
 <p>当前目标是确定<strong>最符合训练数据</strong>的<strong>参数a和b</strong>的值。</p>
-<p>这可通过测量每个输入x的实际目标值y和模型f（x）之间的失配来实现，并将<strong>失配最小化</strong>。这种失配（=最小值）被称为误差函数。</p>
+<p>这可通过测量每个输入x的实际目标值y和模型f（x）之间的失配来实现，并将<strong>失配最小化</strong>。这种失配（\= 最小值）被称为误差函数。</p>
 <p>有多种误差函数可供选择，但其中最简单的要数<strong>RSS</strong>（构造出了一个凹函数 <strong>好找最小值</strong>），即每个数据点x对应的模型f（x）与目标值y的误差平方和。</p>
 <p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/eab15e6c872545b0966bd2e4bdfbb5e6.jpg" alt="eab15e6c872545b0966bd2e4bdfbb5e6"></p>
 <p>利用误差函数的概念，可将“确定最符合训练数据的参数a、b”改为“确定参数a、b，使误差函数最小化”。</p>
@@ -333,7 +339,6 @@
 <p><strong><em>危害：</em></strong>不满足回归系数估计的<strong>无偏</strong>与<strong>一致性</strong></p>
 <p>误差项</p>
 <script type="math/tex; mode=display">
-<Empty \space Math \space Block></script><script type="math/tex; mode=display">
 \hat\mu_i = y_i-\hat\beta_0-\hat\beta_1x_i</script><p>假设 真实的为</p>
 <script type="math/tex; mode=display">
 y_i = \beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3\\
@@ -368,7 +373,7 @@ y_i = \beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3\\
 </ul>
 <h3 id="二、回归"><a href="#二、回归" class="headerlink" title="二、回归"></a>二、回归</h3><h4 id="Stata基本OLS"><a href="#Stata基本OLS" class="headerlink" title="Stata基本OLS"></a>Stata基本OLS</h4><p>reg（ress）y x1 x2…xn    (OLS)<img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/001.png" alt="001"></p>
 <p>第二列SS对应的是误差平方和，或称变差。<br>1.第一行为回归平方和或回归变差SSR，表示因变量的预LSSR=测值对其平均值的总偏差。<br>2.第二行为剩余平方和(也称残差平方和或剩余变差)SSE，是因变量对其预测值的总偏差，这个数值越大，拟合效果越差，y的标准误差即由SSE给出。<br>3.第三行为总平方和或总变差SST，表示因变量对其平均值的总偏差。</p>
-<p>第三列df是自由度(degree of freedom)，第一行是回归自由度dfr，等于变量数目，即dfr=m; 第二为残差自由度dfe， 等于样本数目减去变量数目再减1，即有dfe=n-m-1;第三行为总自由度dft，等于样本数目减1，即有dft=n-1。<br>第四列MS是均方差，误差平方和除以相应的自由度<br>1.第一行为回归均方差MSR<br>2.第二行为剩余均方差MSE，数值越小拟合效果越好</p>
+<p>第三列df是自由度(degree of freedom)，第一行是回归自由度dfr，等于变量数目，即dfr=m; 第二为残差自由度dfe， 等于样本数目减去变量数目再减1，即有dfe\=n-m-1;第三行为总自由度dft，等于样本数目减1，即有dft\=n-1。<br>第四列MS是均方差，误差平方和除以相应的自由度<br>1.第一行为回归均方差MSR<br>2.第二行为剩余均方差MSE，数值越小拟合效果越好</p>
 <p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/002.png" alt="002"></p>
 <p><strong>F值</strong>，用于线性关系的判定。结合P值对线性关系的显著性进行判断，即弃真概率。所谓“弃真概率”即模型为假的概率，显然1-P便是模型”为真的概率，P值越小越好。对于本例，P=0.0000&lt;0.0001 ,故置信度达到99.99%以上。</p>
 <hr>
@@ -387,9 +392,9 @@ ROOT\ MSE =\sqrt{MSE}</script><p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%
 Std.\ Err.\ 回归系数的标准误差\\
 \sqrt[]{var(\hat\beta_j)} = \sqrt{\dfrac{MSE}{SST_{x_j}(1-R_j^2)}}
 =\sqrt{\dfrac{MSE*VIF_j}{SST_{x_j}}}\\
-R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以x,中不能被其\\它自变量解释的部分, VIF_j变量x_j的方差扩大因子</script><p>T值=Coef./Std. Err.</p>
+R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以x,中不能被其\\它自变量解释的部分, VIF_j变量x_j的方差扩大因子</script><p>T值\=Coef./Std. Err.</p>
 <hr>
-<p>P值用于说明回归系数的显著性，一般来说P值&lt;0.1(<em>)表示10%显著水平显著，P值&lt;0.05(\</em>*)表示5%显著水平显著，P值 &lt;0.01(***)表示1%显著水平显著</p>
+<p>P值用于说明回归系数的显著性，一般来说P值&lt;0.1(<em>)表示10%显著水平显著，P值&lt;0.05(\</em>*)表示5%显著水平显著，P值 \&lt;0.01(***)表示1%显著水平显著</p>
 <h4 id="标准化回归"><a href="#标准化回归" class="headerlink" title="标准化回归"></a>标准化回归</h4><p>通过<strong>去除量纲</strong>的影响来<strong>反映</strong>自变量之间的<strong>重要程度</strong></p>
 <p>regress y x1 x2 … xk,beta</p>
 <p><img src="/2020/07/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/QQ截图20200617131700.png" alt="QQ截图20200617131700"></p>
@@ -666,7 +671,7 @@ R_j^2为x_j对其它自变量进行回归的判决系数即，方差为MSE除以
 
 
   
-<script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/local-search.js"></script>
 
 
 
