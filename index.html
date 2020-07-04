@@ -226,6 +226,165 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://scarels.github.io/2020/07/02/Unicode%20utf8%E7%AD%89%E7%BC%96%E7%A0%81%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F.jpg">
+      <meta itemprop="name" content="Scarels">
+      <meta itemprop="description" content="也许我们歌唱太阳，也被太阳歌唱着">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aScarels">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/02/Unicode%20utf8%E7%AD%89%E7%BC%96%E7%A0%81%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">UTF-8</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-02 10:03:22" itemprop="dateCreated datePublished" datetime="2020-07-02T10:03:22+08:00">2020-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-04 23:37:00" itemprop="dateModified" datetime="2020-07-04T23:37:00+08:00">2020-07-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/UTF-8/" itemprop="url" rel="index"><span itemprop="name">UTF-8</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Unicode-utf8等编码类型的原理"><a href="#Unicode-utf8等编码类型的原理" class="headerlink" title="Unicode utf8等编码类型的原理"></a>Unicode utf8等编码类型的原理</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p>二进制 比特 字节 16进制</p>
+<h2 id="1、ASCII码"><a href="#1、ASCII码" class="headerlink" title="1、ASCII码"></a><strong>1、ASCII码</strong></h2><p>上个世纪60年代，美国制定了一套字符编码，对<strong>英语字符与二进制位</strong>之间的关系，做了统一规定。这被称为ASCII码，</p>
+<p>规定了<strong>128个字符的编码</strong>，比如空格“SPACE”是32（二进0010 0000），大写的字母A是65（二进制0100 0001）。这128个符号（包括32个不能打印出来的控制符号），只占用了一个字节的后面7位，<strong>最前面的1位统一规定为0。</strong></p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题:"></a><strong>问题:</strong></h3><p>128个符号是<strong>不够</strong>的(对于非英语国家的),例如一些欧洲国家就决定，利用字节中闲置的最高位编入新的符号。</p>
+<p>比如，法语中的<strong>é的编码为130（二进制10000010）</strong>。这样一来，这些欧洲国家使用的编码体系，可以表示最多256个符号。</p>
+<p><strong>简体中文常见的编码方式是GB2312，使用两个字节表示一个汉字</strong>，所以理论上最多可以表示256x256=65536个符号。</p>
+<p> 中文编码的问题需要专文讨论，这篇笔记不涉及。这里只指出，虽然都是用多个字节表示一个符号，但是GB类的汉字编码与后文的Unicode和UTF-8是毫无关系的。</p>
+<h2 id="2、Unicode"><a href="#2、Unicode" class="headerlink" title="2、Unicode"></a>2、Unicode</h2><blockquote>
+<p>每一个符号都给予一个独一无二的编码，那么乱码问题就会消失。这就是Unicode，就像它的名字表示的，这是一种所有符号的编码。是一种符号集</p>
+</blockquote>
+<p>通过上一部分的<strong>问题</strong>:世界上存在着<strong>多种编码方式</strong>，同一个二进制数字可以被解释成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用<strong>错误的编码方式解读</strong>，就会出现<strong>乱码</strong>。电子邮件出现乱码</p>
+<p> Unicode现在的规模可以容纳100多万个符号,具体的符号对应表，<strong>可以查询unicode.org</strong></p>
+<h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>Unicode只是一个<strong>符号集</strong>，它只规定了符号的二进制代码，却没有规定这个<strong>二进制代码应该如何存储</strong>。</p>
+<ul>
+<li><p><strong>如何区别unicode和ascii？</strong></p>
+<p>计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？</p>
+</li>
+<li><p><strong>存储方式问题</strong></p>
+<p>如果unicode<strong>统一规定</strong>，每个符号用三个或四个字节表示，那么每个<strong>英文字母前都必然有二到三个字节是0</strong>，这对于<strong>存储</strong>来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。</p>
+</li>
+</ul>
+<h2 id="3、UTF-8"><a href="#3、UTF-8" class="headerlink" title="3、UTF-8"></a><strong>3、UTF-8</strong></h2><blockquote>
+<p>UTF-8就是在互联网上使用最广的<strong>一种unicode的实现方式</strong>。其他实现方式还包括UTF-16和UTF-32，不过在互联网上基本不用。</p>
+</blockquote>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>它可以使用<strong>1~4个字节</strong>表示一个符号，<strong>根据不同的符号</strong>而变化字节长度。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>1）对于单字节的符号，字节的第一位（字节的最高位）设为0，后面7位为这个符号的unicode码。因此<strong>对于英语字母</strong>，UTF-8编码和ASCII码是相同的。 </p>
+<p>2）对于n字节的符号（n&gt;1），第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的unicode码。多出的位补0</p>
+<p>Unicode符号范围 | UTF-8编码方式<br>(十六进制) | （二进制）<br>——————————+——————————————————————-<br>0000 0000-0000 007F | 0xxxxxxx<br>0000 0080-0000 07FF | <strong>110</strong>xxxxx <strong>10</strong>xxxxxx<br>0000 0800-0000 FFFF | <strong>1110</strong>xxxx <strong>10</strong>xxxxxx <strong>10</strong>xxxxxx<br>0001 0000-0010 FFFF | <strong>11110</strong>xxx <strong>10</strong>xxxxxx <strong>10</strong>xxxxxx <strong>10</strong>xxxxxx </p>
+<p>以下两个<a href="https://www.v2ex.com/t/517938" target="_blank" rel="noopener">问题</a>是在V2EX上发现的</p>
+<h3 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h3><p>第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10</p>
+<p>这样设计的好处:</p>
+<ul>
+<li>保证了一个 ASCII 字符或子字符串永远不会匹配到一个多字节编码的字符中间,明确了开头和结尾.</li>
+<li><p>it knows to skip bytes (or go backwards) until the byte starts with <code>0</code> or <code>11</code>; this prevents garbage values when a single byte gets corrupted.</p>
+</li>
+<li><p>直接在一个 UTF-8 编码的字符串中搜索 UTF-8 编码的非 ASCII 的子字符串——无需关注码位边界。(没看懂)</p>
+</li>
+</ul>
+<h3 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h3><p><strong>UTF-8 不用完所有的有效 bit 呢?</strong></p>
+<ul>
+<li>单字节可以表示 [0, 0x7f]这些码点. 这和 UTF-8 一致</li>
+<li>两个字节有可以表示 2^11 个码点, 范围从”单字节能表示的最大码点的后一个码点”开始, 码点范围也就是 [0x80, 0x80+2^11-1] = [0x80, 0x87F]</li>
+<li>四个字节可以表示 2^21 个码点(实际上已经用不了那么多了), 范围从”三字节能表示的最大码点的后一个码点”开始, 到 Unicode 的最后一个码点结束, 也就是[0x10880, 0x10FFFF]</li>
+</ul>
+<p>以汉字’你’为例. <strong>编码</strong>过程如下:</p>
+<ul>
+<li>‘你’字的码点是 0x4F60, 它落在了3个字节的范围</li>
+<li>用它的码点<strong>减去”三字节码点的第一个码点 0x880”</strong>, 得到’你’在三字节里的偏移量: 0x4F60 - 0x880 = 0x46E0, 用前导 0 补齐 16 bit 的有效载荷. 得到 0100 011011 100000</li>
+<li>填充到3字节的有效bit中, 得到最终的表示: 11100100 10011011 10100000 , 即 0xE49BA0</li>
+</ul>
+<p>对多字节 0xE49BA0 的<strong>解码过程</strong>如下:</p>
+<ul>
+<li>首字节高位有3个bit 的 1 , 表示这是三个字节组成的一个码点</li>
+<li><strong>取出有效 bit 位</strong>: 0100 011011 100000 === 0x46E0</li>
+<li>加上”三字节码点的第一个码点 0x880”的偏移量, 即 0x46E0 + 0x880 = 0x4F60, 也就得到了’你’的码点</li>
+</ul>
+<p>以上的推演应该没有弄错哪里吧(我经常弄错一些简单的东西但不自知)… 如果没弄错的话, 它有一些微弱的优势:</p>
+<ul>
+<li>两字节能比 UTF-8 多表示 128 个码点, 这部分码点在 UTF-8 里需要用 3个字节表示</li>
+<li>三字节能比 UTF-8 多表示 2048 个码点, 这部分码点在 UTF-8 里需要 4 个字节表示</li>
+</ul>
+<h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><p>有一种针对中文 GB 编码的 <strong>SQL 注入方法</strong>，称为半字符注入或者宽字符注入，UTF-8 的这种设计则会<strong>避免这种攻击方式</strong>。(现在还不了解)</p>
+<p><strong>靠位移就能解码</strong>，按照你这种设计的话还要涉及到数学运算。先不说写程序更容易出 Bug。光说 CPU 运算效率，直接位移速度要快很多，甚至还能直接做成 CPU 指令集，或者利用已有的 SIMD 进行快速处理。你可以搜一下 <strong>UTF-8 SIMD</strong> 看看别人的快速实现</p>
+<h2 id="4、Little-endian和Big-endian"><a href="#4、Little-endian和Big-endian" class="headerlink" title="4、Little endian和Big endian"></a>4、<strong>Little endian和Big endian</strong></h2><p>Unicode码可以采用<strong>UCS-2格式</strong>直接存储。以汉字”严“为例，Unicode码是4E25，需要用两个字节存储，一个字节是4E，另一个字节是25。存储的时候，4E在前，25在后，就是(第一个字节在前)Big endian方式；25在前，4E在后，就是Little endian方式。</p>
+<p>Unicode规范中定义，每一个文件的最前面分别加入<strong>一个</strong>表示编码顺序的字符，这个字符的名字叫做”零宽度非换行空格“（ZERO WIDTH NO-BREAK SPACE），用FEFF表示。这正好是两个字节，而且FF比FE大1</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>文章主要参考了<a href="https://www.cnblogs.com/daxiong2014/p/4768681.html" target="_blank" rel="noopener">开始</a>的 Unicode utf8等编码类型的原理 文章介绍的比较详细 有对于各种编码方式的实践操作 在本文中没有涉及.</p>
+<p>关于utf-8部分参考了<a href="https://www.v2ex.com/t/517938" target="_blank" rel="noopener">V2EX</a>上的讨论 很详细 本文作者理解能力有限 有些地方理解不了 可以去看看</p>
+<p><a href="http://utf8everywhere.org/zh-cn" target="_blank" rel="noopener">utf-8宣言</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://scarels.github.io/2020/07/02/native%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -879,20 +1038,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -937,13 +1096,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">9k</span>
+    <span title="Symbols count total">12k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">8 mins.</span>
+    <span title="Reading time total">11 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
